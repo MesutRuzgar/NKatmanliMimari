@@ -36,5 +36,12 @@ namespace NKatmanliMimari
             LogicPersonel.LLPersonelEkle(ent);
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            EntityPersonel ent = new EntityPersonel();
+            ent.Personelid = Convert.ToInt32(tbxId.Text);
+            LogicPersonel.LLPersonelSil(ent.Personelid);
+        }
     }
 }

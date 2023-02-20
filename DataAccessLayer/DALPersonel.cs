@@ -52,5 +52,20 @@ namespace DataAccessLayer
             return komut2.ExecuteNonQuery();
             
         }
+
+        public static bool PersonelSil(int p)
+        {
+            SqlCommand komut3 = new SqlCommand("Delete from Tbl_Bilgi where PersonelId=@p1", Baglanti.bgl);
+            if (komut3.Connection.State != ConnectionState.Open)
+            {
+                komut3.Connection.Open();
+            }
+            komut3.Parameters.AddWithValue("@p1", p);
+            //yukarıdaki komutlar doğru bir şekilde çalışırsa
+            //0 dan büyük yani 1 döndür oda true demek
+            //calısmazsa 0 döndür yani false demek
+            return komut3.ExecuteNonQuery()>0;
+
+        }
     }
 }

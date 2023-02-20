@@ -25,5 +25,14 @@ namespace LogicLayer
                 return -1;
             }
         }
+
+        public static bool LLPersonelSil(int per)
+        {
+            if (per>=1)
+            {
+                return DALPersonel.PersonelSil(per);
+            }
+            else { return false; }
+        }
     }
 }
