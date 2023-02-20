@@ -14,5 +14,16 @@ namespace LogicLayer
         {
             return DALPersonel.PersonelListesi();
         }
+        public static int LLPersonelEkle(EntityPersonel p) 
+        {
+            if (p.Personelad!="" && p.Personelsoyad!=""&&p.Maas>=3500 &&p.Personelad.Length>=3)
+            {
+                return DALPersonel.PersonelEkle(p);
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }

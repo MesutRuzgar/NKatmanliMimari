@@ -24,5 +24,17 @@ namespace NKatmanliMimari
             List<EntityPersonel> PerList = LogicPersonel.LLPersonelListesi();
             dataGridView1.DataSource= PerList;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EntityPersonel ent = new EntityPersonel();
+            ent.Personelad = tbxAd.Text;
+            ent.Personelsoyad = tbxSoyad.Text;
+            ent.Sehir=tbxSehir.Text;
+            ent.Maas =int.Parse(tbxMaas.Text);
+            ent.Gorev = tbxGorev.Text;
+            LogicPersonel.LLPersonelEkle(ent);
+
+        }
     }
 }

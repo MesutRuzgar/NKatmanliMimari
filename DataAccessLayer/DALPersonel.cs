@@ -35,5 +35,22 @@ namespace DataAccessLayer
             dr.Close();
             return degerler;
         }
+
+        public static int PersonelEkle(EntityPersonel p)
+        {
+            SqlCommand komut2 = new SqlCommand("insert into  Tbl_Bilgi (PersonelAd,PersonelSoyad,Gorev,Sehir,Maas) values (@p1,@p2,@p3,@p4,@p5) ", Baglanti.bgl);
+            if (komut2.Connection.State != ConnectionState.Open)
+            {
+                komut2.Connection.Open();
+            }
+            komut2.Parameters.AddWithValue("@p1", p.Personelad);
+            komut2.Parameters.AddWithValue("@p2", p.Personelsoyad);
+            komut2.Parameters.AddWithValue("@p3", p.Gorev);
+            komut2.Parameters.AddWithValue("@p4", p.Sehir);
+            komut2.Parameters.AddWithValue("@p5", p.Maas);
+     
+            return komut2.ExecuteNonQuery();
+            
+        }
     }
 }
