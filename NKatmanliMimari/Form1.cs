@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EntityLayer;
+using LogicLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,12 @@ namespace NKatmanliMimari
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void btnListele_Click(object sender, EventArgs e)
+        {
+            List<EntityPersonel> PerList = LogicPersonel.LLPersonelListesi();
+            dataGridView1.DataSource= PerList;
         }
     }
 }
